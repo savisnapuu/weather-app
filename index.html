@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="content">
+      <div id="search-group">
+        <input
+          type="text"
+          id="search-location"
+          placeholder="Enter your location"
+        />
+        <button id="search-location-button" class="button-28" role="button">
+          Search
+        </button>
+      </div>
+      <div class="container">
+        <div id="todays-weather-container">
+          <div class="todays-weather-container-top">
+            <div>
+              <h1 id="todays-weather-temp">-°</h1>
+              <h2 id="todays-weather-location">-</h2>
+            </div>
+            <div>
+              <img
+                id="todays-weather-icon"
+                src="http://openweathermap.org/img/wn/10d@4x.png"
+              />
+            </div>
+          </div>
+          <div class="todays-weather-container-bottom">
+            <div>
+              <h3>Wind</h3>
+              <p id="todays-weather-wind">-m/s</p>
+            </div>
+            <div>
+              <h3>Humidity</h3>
+              <p id="todays-weather-humidity">-</p>
+            </div>
+            <div>
+              <h3>Feels like</h3>
+              <p id="todays-weather-feels">-°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="hourly-weather-header"><h2>Hourly</h2></div>
+        <div id="hourly-weather">
+          <section class="splide" aria-label="">
+            <div class="splide__track">
+              <ul class="splide__list" id="hourly-cards"></ul>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="container">
+        <div class="hourly-weather-header"><h2>Next 7 days</h2></div>
+        <div class="section-bg">
+          <div class="weekly-weather-header">
+            <div class="w25">
+              <p>Day</p>
+            </div>
+            <div class="w25">
+              <p>Day/Night</p>
+            </div>
+            <div class="w25">
+              <p>Wind</p>
+            </div>
+            <div class="w25">
+              <p>Weather</p>
+            </div>
+          </div>
+          <div id="weekly-weather-container"></div>
+        </div>
+      </div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
