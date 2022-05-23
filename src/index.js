@@ -3,6 +3,16 @@ import "./style.css";
 import Icon from "./waves.svg";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
+import i01d from "./01d.svg";
+import i02d from "./02d.svg";
+import i03d from "./03d.svg";
+import i04d from "./04d.svg";
+import i09d from "./09d.svg";
+import i10d from "./10d.svg";
+import i11d from "./11d.svg";
+import i13d from "./13d.svg";
+import i50d from "./50d.svg";
+import i01n from "./01n.svg";
 
 const APIKEY = "f4b9cb96b45e07e5787dbae9d0d6f6db";
 let splideActive = false;
@@ -11,26 +21,33 @@ const CURRENT_TIME = new Date().toLocaleTimeString("en-US", {
   hour: "numeric",
 });
 
-let a;
-
 const getWeatherData = {
   getData: async () => {
-    const location = await getWeatherData.geoCoding();
+    const data = await getWeatherData.geoCoding();
+    if (data === "Error") return;
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=minutely&appid=${APIKEY}`,
-      { mode: "cors" }
-    );
-    const data = await response.json();
-    return data;
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&exclude=minutely&appid=${APIKEY}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return data;
+      });
+    return response;
   },
   geoCoding: async () => {
     const city = getWeatherData.submitQuery();
     const response = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKEY}`,
-      { mode: "cors" }
-    );
-    const data = await response.json();
-    return { lat: data[0].lat, lon: data[0].lon };
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=f4b9cb96b45e07e5787dbae9d0d6f6db`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        return data.length === 0 ? "Error" : data;
+      });
+    return response;
   },
   submitQuery: () => {
     const input = document.getElementById("search-location");
@@ -39,7 +56,6 @@ const getWeatherData = {
   },
 };
 
-getWeatherData.getData();
 const hourlyWeather = {
   getTime: () => {
     let time = Number(CURRENT_TIME);
@@ -71,7 +87,6 @@ const hourlyWeather = {
     <div>
       <h2 class="hourly-time">${time}</h>
     </div>
-    <div class="hourly-card">
       <img class="hourly-card-icon" src="https://openweathermap.org/img/wn/${icon}@2x.png">
       <h2 class="hourly-temp">${temp}°</h2>
     </div>
@@ -191,7 +206,7 @@ const todaysWeather = {
     const todaysWind = document.getElementById("todays-weather-wind");
     const todaysHumidity = document.getElementById("todays-weather-humidity");
     const todaysFeels = document.getElementById("todays-weather-feels");
-    todaysTemp.textContent = `${weatherData.current.temp.toFixed()}°`;
+    todaysTemp.textContent = `${weatherData.current.temp.toFixed()}`;
     todaysIcon.src = `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@4x.png`;
     todaysLocation.textContent = getWeatherData.submitQuery();
     todaysWind.textContent = `${weatherData.current.wind_speed.toFixed()}m/s`;
@@ -240,8 +255,9 @@ function clearFields() {
 }
 
 async function test1() {
-  splideActive === true ? clearFields() : (splideActive = true);
   const weatherData = await getWeatherData.getData();
+  if (weatherData === undefined) return;
+  splideActive === true ? clearFields() : (splideActive = true);
   hourlyWeather.displayHourly(weatherData);
   weeklyWeather.populateWeekly(weatherData);
   todaysWeather.setTodayWeather(weatherData);

@@ -4,6 +4,7 @@
 
 body {
   background-color: #f8f8fa;
+  margin: 0;
 }
 
 h2 {
@@ -17,6 +18,10 @@ hr {
 
 .material-symbols-outlined {
   font-size: 18px !important;
+}
+
+.flex {
+  display: flex;
 }
 
 #splide01 {
@@ -140,16 +145,15 @@ hr {
 #todays-weather-container {
   display: flex;
   justify-content: center;
-  background-color: white;
-  background-image: url("./waves.svg");
+  background-image: url(file:///home/visna/Documents/weather-app/dist/b6d4d495666a16b4983e.svg);
   align-items: center;
-  box-shadow: rgba(87, 114, 255, 0.31) 0px 8px 24px;
-  padding: 40px;
+  padding: 40px 40px 60px 40px;
   border-radius: 25px;
   flex-direction: column;
   background-size: cover;
   color: white;
   gap: 15px;
+  position: relative;
 }
 
 .todays-weather-container-bottom {
@@ -175,11 +179,16 @@ hr {
 
 #todays-weather-temp {
   margin: 0;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 600;
 }
 
+#todays-weather-temp-c {
+  font-size: 30px;
+}
+
 #todays-weather-location {
+  text-align: center;
   font-weight: 400;
 }
 
@@ -189,9 +198,9 @@ hr {
 
 .todays-weather-container-top {
   display: flex;
-  gap: 10vw;
   width: 100%;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -283,4 +292,24 @@ p {
   .w25 div p {
     font-size: 12px;
   }
+}
+
+.custom-shape-divider-bottom-1653323201 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1653323201 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+
+.custom-shape-divider-bottom-1653323201 .shape-fill {
+  fill: #f8f8fa;
 }

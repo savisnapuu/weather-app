@@ -22,28 +22,44 @@
   </head>
   <body>
     <div class="content">
-      <div id="search-group">
-        <input
-          type="text"
-          id="search-location"
-          placeholder="Enter your location"
-        />
-        <button id="search-location-button" class="button-28" role="button">
-          Search
-        </button>
-      </div>
       <div class="container">
         <div id="todays-weather-container">
+          <div class="custom-shape-divider-bottom-1653323201">
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+                class="shape-fill"
+              ></path>
+            </svg>
+          </div>
+          <div id="search-group">
+            <input
+              type="text"
+              id="search-location"
+              placeholder="Enter your location"
+            />
+            <button id="search-location-button" class="button-28" role="button">
+              Search
+            </button>
+          </div>
           <div class="todays-weather-container-top">
             <div>
-              <h1 id="todays-weather-temp">-°</h1>
               <h2 id="todays-weather-location">-</h2>
-            </div>
-            <div>
               <img
                 id="todays-weather-icon"
                 src="http://openweathermap.org/img/wn/10d@4x.png"
               />
+            </div>
+            <div>
+              <div class="flex">
+                <h1 id="todays-weather-temp">-</h1>
+                <span id="todays-weather-temp-c">°</span>
+              </div>
             </div>
           </div>
           <div class="todays-weather-container-bottom">
