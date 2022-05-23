@@ -1,9 +1,9 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-
+/* #f3f3f3 */
 body {
-  background-color: #f8f8fa;
+  background-color: #f3f3f3;
   margin: 0;
 }
 
@@ -36,12 +36,15 @@ hr {
 }
 
 .splide__slide {
+  margin-right: 1em;
+width: calc(33.3333% - 0.666667em);
+background-color: #1a1d2e;
+border-radius: 25px;
+padding: 15px;
 }
 
 #hourly-weather {
-  background-color: white;
-  border-radius: 25px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 #hourly-cards {
@@ -66,16 +69,15 @@ hr {
 }
 
 .hourly-time {
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: gray;
+  font-weight: 400;
+font-size: 14px;
+color: #ffffffc7;
 }
 
 .hourly-temp {
-  font-family: "Oswald", sans-serif;
   font-size: 18px;
-  font-weight: 300;
+font-weight: 400;
+color: white;
 }
 
 .hourly-wind {
@@ -104,12 +106,12 @@ hr {
 }
 
 .button-28 {
-  background-color: #5772ff;
+  background-color: #f8f9fe;
   appearance: none;
   border: none;
   border-radius: 0px 10px 10px 00px;
   box-sizing: border-box;
-  color: #f0f0f0;
+  color: black;
   cursor: pointer;
   font-size: 18px;
   line-height: normal;
@@ -148,7 +150,6 @@ hr {
   background-image: url(file:///home/visna/Documents/weather-app/dist/b6d4d495666a16b4983e.svg);
   align-items: center;
   padding: 40px 40px 60px 40px;
-  border-radius: 25px;
   flex-direction: column;
   background-size: cover;
   color: white;
@@ -279,7 +280,8 @@ p {
 }
 
 .section-bg {
-  background-color: white;
+  background-color: #1a1d2e;
+  color: white;
   border-radius: 25px;
   padding: 30px 0px;
 }
@@ -311,5 +313,5 @@ p {
 }
 
 .custom-shape-divider-bottom-1653323201 .shape-fill {
-  fill: #f8f8fa;
+  fill: #f3f3f3;
 }

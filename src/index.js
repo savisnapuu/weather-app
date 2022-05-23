@@ -77,12 +77,11 @@ const hourlyWeather = {
         time[i],
         weatherData.hourly[i].weather[0].icon,
         Number(weatherData.hourly[i].temp).toFixed(1),
-        Number(weatherData.hourly[i].wind_speed).toFixed(0)
       );
       splide.appendChild(div);
     }
   },
-  hourlyHtml: (time, icon, temp, wind) => {
+  hourlyHtml: (time, icon, temp) => {
     const divHtml = `
     <div>
       <h2 class="hourly-time">${time}</h>
@@ -228,7 +227,7 @@ let splide = new Splide(".splide", {
       perPage: 4,
     },
     1366: {
-      perPage: 6,
+      perPage: 8,
     },
     1920: {
       perPage: 8,
