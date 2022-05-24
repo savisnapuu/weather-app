@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.0.2",
+    "chart.js": "^3.7.1",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "lodash": "^4.17.21"
   }
 }

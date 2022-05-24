@@ -3,6 +3,8 @@ import "./style.css";
 import Icon from "./waves.svg";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
+import Chart from "chart.js/auto";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import i01d from "./01d.svg";
 import i02d from "./02d.svg";
 import i03d from "./03d.svg";
@@ -21,9 +23,14 @@ const CURRENT_TIME = new Date().toLocaleTimeString("en-US", {
   hour: "numeric",
 });
 
+let currentCountry = "";
+let currentCity = "";
+
 const getWeatherData = {
   getData: async () => {
     const data = await getWeatherData.geoCoding();
+    currentCountry = data[0].country;
+    currentCity = data[0].name;
     if (data === "Error") return;
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&exclude=minutely&appid=${APIKEY}`
@@ -76,7 +83,7 @@ const hourlyWeather = {
       div.innerHTML = hourlyWeather.hourlyHtml(
         time[i],
         weatherData.hourly[i].weather[0].icon,
-        Number(weatherData.hourly[i].temp).toFixed(1),
+        Number(weatherData.hourly[i].temp).toFixed(1)
       );
       splide.appendChild(div);
     }
@@ -127,10 +134,14 @@ const weeklyWeather = {
     "November",
     "December",
   ],
-  getDay: (inc) => {
+  getDay: () => {
     const d = new Date();
     let day = d.getDay();
-    return weeklyWeather.weekdays[day + inc];
+    let arr = [];
+    for (let i = 0; i < 7; i++) {
+      arr.push(weeklyWeather.weekdays[day + i].slice(0, 3));
+    }
+    return arr;
   },
   getDate: (inc) => {
     const today = new Date();
@@ -145,47 +156,43 @@ const weeklyWeather = {
   getIcon: (i, weatherData) => weatherData.daily[i].weather[0].icon,
   populateWeekly: (weatherData) => {
     const container = document.getElementById("weekly-weather-container");
+    const days = weeklyWeather.getDay();
     for (let i = 0; i < 7; i++) {
       const div = document.createElement("div");
       div.classList.add("weekly-weather");
-      const day = weeklyWeather.getDay(i);
+      const day = days[i];
       const date = weeklyWeather.getDate(i);
       const dayTemp = weeklyWeather.getDayTemp(i, weatherData);
       const nightTemp = weeklyWeather.getNightTemp(i, weatherData);
-      const wind = weeklyWeather.getWindSpeed(i, weatherData);
       const icon = weeklyWeather.getIcon(i, weatherData);
       div.innerHTML = weeklyWeather.weeklyHtml(
         day,
         date,
         dayTemp,
         nightTemp,
-        wind,
         icon
       );
       container.appendChild(div);
     }
   },
-  weeklyHtml: (day, date, dayTemp, nightTemp, wind, icon) => {
+  weeklyHtml: (day, date, dayTemp, nightTemp, icon) => {
     const divHtml = `
           <div class="weekly-weather-row">
-            <div class="weekly-weather-date w25">
+            <div class="weekly-weather-date">
               <div>
-                <h2>${day.slice(0, 3)}</h2>
+                <h2>${day}</h2>
                 <p>${date}</p>
               </div>
             </div>
-            <div class="weekly-weather-day-night w25">
-              <div>
+            <div class="weekly-weather-day-night">
+              <div class="weekly-weather-day">
                 <h2>${dayTemp}°</h2>
               </div>
-              <div>
+              <div class="weekly-weather-night">
                 <h2>${nightTemp}°</h2>
               </div>
             </div>
-            <div class="w25">
-              <h2>${wind}m/s</h2>
-            </div>
-            <div class="weekly-weather-icon w25">
+            <div class="weekly-weather-icon">
               <img
                 id="weekly-weather-icon"
                 src="https://openweathermap.org/img/wn/${icon}@2x.png"
@@ -207,7 +214,7 @@ const todaysWeather = {
     const todaysFeels = document.getElementById("todays-weather-feels");
     todaysTemp.textContent = `${weatherData.current.temp.toFixed()}`;
     todaysIcon.src = `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@4x.png`;
-    todaysLocation.textContent = getWeatherData.submitQuery();
+    todaysLocation.textContent = `${currentCity}, ${currentCountry}`;
     todaysWind.textContent = `${weatherData.current.wind_speed.toFixed()}m/s`;
     todaysHumidity.textContent = weatherData.current.humidity;
     todaysFeels.textContent = `${weatherData.current.feels_like.toFixed()}°`;
@@ -221,10 +228,10 @@ let splide = new Splide(".splide", {
   trimSpace: true,
   breakpoints: {
     640: {
-      perPage: 3,
+      perPage: 4,
     },
     1024: {
-      perPage: 4,
+      perPage: 6,
     },
     1366: {
       perPage: 8,
@@ -255,15 +262,128 @@ function clearFields() {
 
 async function test1() {
   const weatherData = await getWeatherData.getData();
-  if (weatherData === undefined) return;
+  if (weatherData === undefined) {
+    removeLocationError();
+    locationError();
+    return;
+  }
+  removeLocationError();
   splideActive === true ? clearFields() : (splideActive = true);
+  data = getGraphData(weatherData);
+  removeData(myChart);
+  addData(myChart, weeklyWeather.getDay(), data);
   hourlyWeather.displayHourly(weatherData);
   weeklyWeather.populateWeekly(weatherData);
   todaysWeather.setTodayWeather(weatherData);
   splide.mount();
 }
 
+function locationError() {
+  const searchError = document.getElementById("search-section");
+  const h2 = document.createElement("h2");
+  h2.id = "error-message";
+  h2.textContent = "No results found";
+  searchError.appendChild(h2);
+}
+
+function removeLocationError() {
+  const el = document.getElementById("error-message");
+  if (el === null) return;
+  el.remove();
+}
+
+function getGraphData(weatherData) {
+  let arr = [];
+  for (let i = 0; i < 7; i++) {
+    arr.push(weatherData.daily[i].temp.max);
+  }
+  return arr;
+}
+
 const button = document.getElementById("search-location-button");
 button.addEventListener("click", () => {
   test1();
+});
+
+function addData(chart, label, data) {
+  chart.data.labels = label;
+  chart.data.datasets.forEach((dataset) => {
+    dataset.data = data;
+  });
+  chart.update();
+}
+
+function removeData(chart) {
+  chart.data.labels.pop();
+  chart.data.datasets.forEach((dataset) => {
+    dataset.data.pop();
+  });
+  chart.update();
+}
+
+Chart.register(ChartDataLabels);
+
+let data = [];
+let labels = [];
+
+const ctx = document.getElementById("myChart");
+
+Chart.defaults.font.size = 10;
+const myChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: labels,
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: data,
+        fill: false,
+        borderColor: "#14213d",
+        tension: 0.1,
+      },
+    ],
+  },
+  options: {
+    layout: {
+      padding: 20,
+    },
+    plugins: {
+      datalabels: {
+        anchor: "start",
+        align: "top",
+        formatter: Math.round,
+        font: {
+          weight: "lighter",
+          size: 12,
+        },
+      },
+      legend: {
+        display: false,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: false,
+          maxRotation: 0,
+          minRotation: 0,
+        },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        y: {
+          type: "linear",
+          grace: "5%",
+        },
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  },
 });

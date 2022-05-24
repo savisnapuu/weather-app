@@ -1,9 +1,9 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-/* #f3f3f3 */
+/* #f3f3f3, #232634 */
 body {
-  background-color: #f3f3f3;
+  background-color: white;
   margin: 0;
 }
 
@@ -11,17 +11,20 @@ h2 {
   margin: 0;
 }
 
-hr {
-  width: 85%;
-  color: #8080801f;
-}
-
-.material-symbols-outlined {
-  font-size: 18px !important;
-}
-
 .flex {
   display: flex;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
 }
 
 #splide01 {
@@ -31,20 +34,14 @@ hr {
 }
 
 .splide__track {
-  width: 90%;
-  padding-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .splide__slide {
-  margin-right: 1em;
-width: calc(33.3333% - 0.666667em);
-background-color: #1a1d2e;
-border-radius: 25px;
-padding: 15px;
 }
 
 #hourly-weather {
-
 }
 
 #hourly-cards {
@@ -70,14 +67,14 @@ padding: 15px;
 
 .hourly-time {
   font-weight: 400;
-font-size: 14px;
-color: #ffffffc7;
+  font-size: 14px;
+  color: #14213d91;
 }
 
 .hourly-temp {
   font-size: 18px;
-font-weight: 400;
-color: white;
+  font-weight: 400;
+  color: #14213d;
 }
 
 .hourly-wind {
@@ -146,8 +143,8 @@ color: white;
 
 #todays-weather-container {
   display: flex;
+  background-color: #14213d;
   justify-content: center;
-  background-image: url(file:///home/visna/Documents/weather-app/dist/b6d4d495666a16b4983e.svg);
   align-items: center;
   padding: 40px 40px 60px 40px;
   flex-direction: column;
@@ -204,46 +201,46 @@ color: white;
   align-items: center;
 }
 
-.container {
-  max-width: 1200px;
-  width: 100%;
-}
-
-.content {
+.todays-weather-container-top-a {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2vh;
 }
 
 .hourly-weather-header {
   display: flex;
+  padding: 0px 3.5vw;
+  margin-bottom: 20px;
 }
 
 .hourly-weather-header h2 {
-  margin: 0px 0px 10px 15px;
   font-weight: 400;
-  font-size: 22px;
-  color: gray;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background-color: #14213d;
+  font-size: 18px;
+}
+
+.weekly-weather-header {
+  display: flex;
+  padding: 0px 3.5vw;
+  margin-bottom: 10px;
+}
+
+.weekly-weather-header h2 {
+  font-weight: 400;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background-color: #14213d;
+  font-size: 18px;
 }
 
 .weekly-weather-row {
   display: flex;
   justify-content: space-between;
-}
-
-.weekly-weather-day-night {
-  display: flex;
-  gap: 10px;
-}
-
-.weekly-weather-date {
-  align-self: center;
-}
-
-.weekly-weather-date div p {
-  font-size: 14px;
-  color: gray;
+  padding: 0px 4vw;
+  align-items: center;
 }
 
 #weekly-weather-icon {
@@ -251,48 +248,62 @@ color: white;
   margin-top: -5px;
 }
 
-.weekly-weather-date h2,
-p {
-  margin: 0;
-}
-
 .weekly-weather-icon {
   align-self: center;
 }
 
-.weekly-weather-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: gray;
+.weekly-weather-date h2 {
+  font-weight: 500;
+  color: #14213d;
+  font-size: 18px;
 }
 
-.w25 {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.w25 h2 {
-  font-size: 16px;
+.weekly-weather-date p {
+  color: #14213d91;
   font-weight: 400;
+  font-size: 14px;
+  margin: 0;
 }
 
-.section-bg {
-  background-color: #1a1d2e;
-  color: white;
-  border-radius: 25px;
-  padding: 30px 0px;
+.weekly-weather-day-night {
+  display: flex;
+  gap: 10px;
+}
+
+.weekly-weather-day h2 {
+  font-size: 18px;
+  color: #14213d;
+  font-weight: 500;
+}
+
+.weekly-weather-night h2 {
+  font-size: 18px;
+  color: grey;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 600px) {
-  .w25 h2 {
+  .weekly-weather-date h2 {
+    font-size: 16px;
+  }
+  .weekly-weahter-date p {
     font-size: 14px;
   }
-
-  .w25 div p {
-    font-size: 12px;
+  .weekly-weahter-day h2 {
+    font-size: 16px;
+  }
+  .weekly-weahter-night h2 {
+    font-size: 16px;
+  }
+  .hourly-temp {
+    font-size: 16px;
+  }
+  .splide__arrow {
+    display: none !important;
+  }
+  .splide__track {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
 
@@ -313,5 +324,14 @@ p {
 }
 
 .custom-shape-divider-bottom-1653323201 .shape-fill {
-  fill: #f3f3f3;
+  fill: white;
+}
+
+#error-message {
+  background-color: #df4a4a;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: 300;
+  font-size: 20px;
+  padding: 5px;
 }
