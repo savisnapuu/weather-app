@@ -19,7 +19,10 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="content">
@@ -38,18 +41,24 @@
               ></path>
             </svg>
           </div>
-          <div id="search-group">
-            <input
-              type="text"
-              id="search-location"
-              placeholder="Enter your location"
-            />
-            <button id="search-location-button" class="button-28" role="button">
-              Search
-            </button>
+          <div id="search-section">
+            <div id="search-group">
+              <input
+                type="text"
+                id="search-location"
+                placeholder="Enter your location"
+              />
+              <button
+                id="search-location-button"
+                class="button-28"
+                role="button"
+              >
+                Search
+              </button>
+            </div>
           </div>
           <div class="todays-weather-container-top">
-            <div>
+            <div class="todays-weather-container-top-a">
               <h2 id="todays-weather-location">-</h2>
               <img
                 id="todays-weather-icon"
@@ -79,8 +88,11 @@
           </div>
         </div>
       </div>
+      <div style="height: 200px; margin-top: 50px">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
       <div class="container">
-        <div class="hourly-weather-header"><h2>Hourly</h2></div>
+        <div class="hourly-weather-header"><h2>Hourly forecast</h2></div>
         <div id="hourly-weather">
           <section class="splide" aria-label="">
             <div class="splide__track">
@@ -90,22 +102,8 @@
         </div>
       </div>
       <div class="container">
-        <div class="hourly-weather-header"><h2>Next 7 days</h2></div>
+        <div class="weekly-weather-header"><h2>Daily forecast</h2></div>
         <div class="section-bg">
-          <div class="weekly-weather-header">
-            <div class="w25">
-              <p>Day</p>
-            </div>
-            <div class="w25">
-              <p>Day/Night</p>
-            </div>
-            <div class="w25">
-              <p>Wind</p>
-            </div>
-            <div class="w25">
-              <p>Weather</p>
-            </div>
-          </div>
           <div id="weekly-weather-container"></div>
         </div>
       </div>
