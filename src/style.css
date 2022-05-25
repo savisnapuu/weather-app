@@ -149,7 +149,7 @@ h2 {
 #todays-weather-container {
   display: flex;
   background-image: url(./waves.svg);
-  background-color: #14213d;
+  background-color: #000104b3;
   justify-content: center;
   align-items: center;
   padding: 40px 40px 60px 40px;
@@ -158,6 +158,8 @@ h2 {
   color: white;
   gap: 15px;
   position: relative;
+  background-position: center;
+  background-blend-mode: overlay;
 }
 
 .todays-weather-container-bottom {
@@ -169,14 +171,14 @@ h2 {
 }
 
 .todays-weather-container-bottom div h3 {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   color: white;
   margin-bottom: 5px;
 }
 
 .todays-weather-container-bottom div p {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 22px;
   color: white;
   margin-top: 0px;
@@ -199,6 +201,8 @@ h2 {
 
 #todays-weather-icon {
   margin: -40px;
+  height: 200px;
+width: 200px;
 }
 
 .todays-weather-container-top {
@@ -211,6 +215,7 @@ h2 {
 .todays-weather-container-top-a {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .hourly-weather-header {
@@ -218,7 +223,7 @@ h2 {
 }
 
 .hourly-weather-header h2 {
-  color: black;
+  color: #1a1a1a;
   font-size: 20px;
   text-align: center;
   font-weight: 600;
@@ -235,7 +240,7 @@ h2 {
 }
 
 .weekly-weather-header h2 {
-  color: black;
+  color: #1a1a1a;
   font-size: 20px;
   font-weight: 600;
 }
@@ -314,6 +319,9 @@ h2 {
     margin-left: 0px;
     margin-right: 0px;
   }
+  #weather-graph {
+    height: 200px!important;
+  }
 }
 
 .custom-shape-divider-bottom-1653323201 {
@@ -346,7 +354,7 @@ h2 {
 }
 
 #weather-graph {
-  height: 200px;
+  height: 300px;
   max-width: 1200px;
   width: 100%;
 }
@@ -366,7 +374,7 @@ h2 {
 }
 
 .btn-group button {
-  background-color: #1a1a1a;
+  background-color: #242424;
   color: white;
   padding: 10px 24px;
   cursor: pointer;
@@ -393,7 +401,7 @@ h2 {
 
 .btn-group button:hover {
   background-color: white;
-  color: white;
+  color: black;
 }
 
 .btn-left {

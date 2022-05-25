@@ -32,8 +32,6 @@ export function clearGraphData() {
 const graphButtons = document.querySelectorAll(".graph-header-item");
 graphButtons.forEach((item) =>
   item.addEventListener("click", () => {
-    console.log(data);
-    console.log(labels);
     if (item.dataset.value === "day") {
       removeData(myChart);
       addData(myChart, labels, dataForGraph.day);
