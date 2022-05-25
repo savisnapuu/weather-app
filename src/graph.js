@@ -1,84 +1,134 @@
 import Chart from "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import * as dataw from "./getdata";
 
 Chart.register(ChartDataLabels);
-Chart.defaults.font.size = 10;
+Chart.defaults.font.size = 12;
 const ctx = document.getElementById("myChart");
 
-let data = [];
-let labels = [];
+export let data = [];
+export let labels = [];
+
+export let dataForGraph = {
+  day: [],
+  night: [],
+  wind: [],
+};
+
+export function pushGraphData() {
+  for (let i = 0; i < 7; i++) {
+    dataForGraph.day.push(dataw.weatherData.daily[i].temp.day.toFixed());
+    dataForGraph.night.push(dataw.weatherData.daily[i].temp.night.toFixed());
+    dataForGraph.wind.push(dataw.weatherData.daily[i].wind_speed.toFixed());
+  }
+}
+
+export function clearGraphData() {
+  dataForGraph.day = [];
+  dataForGraph.night = [];
+  dataForGraph.wind = [];
+}
+
+const graphButtons = document.querySelectorAll(".graph-header-item");
+graphButtons.forEach((item) =>
+  item.addEventListener("click", () => {
+    console.log(data);
+    console.log(labels);
+    if (item.dataset.value === "day") {
+      removeData(myChart);
+      addData(myChart, labels, dataForGraph.day);
+    } else if (item.dataset.value === "night") {
+      removeData(myChart);
+      addData(myChart, labels, dataForGraph.night);
+    } else if (item.dataset.value === "wind") {
+      removeData(myChart);
+      addData(myChart, labels, dataForGraph.wind);
+    }
+  })
+);
 
 export function addData(chart, label, data) {
-    chart.data.labels = label;
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data = data;
-    });
-    chart.update();
-  }
-  
-  export function removeData(chart) {
-    chart.data.labels.pop();
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.pop();
-    });
-    chart.update();
-  }
-
-  export const myChart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Weather",
-          data: data,
-          fill: false,
-          borderColor: "#14213d",
-          tension: 0.1,
-        },
-      ],
-    },
-    options: {
-      layout: {
-        padding: 20,
-      },
-      plugins: {
-        datalabels: {
-          anchor: "start",
-          align: "top",
-          formatter: Math.round,
-          font: {
-            weight: "lighter",
-            size: 12,
-          },
-        },
-        legend: {
-          display: false,
-        },
-      },
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          ticks: {
-            autoSkip: false,
-            maxRotation: 0,
-            minRotation: 0,
-          },
-          grid: {
-            display: false,
-          },
-        },
-        y: {
-          y: {
-            type: "linear",
-            grace: "5%",
-          },
-          display: false,
-          grid: {
-            display: false,
-          },
-        },
-      },
-    },
+  chart.data.labels = label;
+  chart.data.datasets.forEach((dataset) => {
+    dataset.data = data;
   });
+  chart.update();
+}
+
+export function removeData(chart) {
+  chart.update();
+}
+
+export const myChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: labels,
+    datasets: [
+      {
+        label: "Weather",
+        data: data,
+        fill: false,
+        borderColor: "#14213d",
+        tension: 0.3,
+      },
+    ],
+  },
+  options: {
+    elements: {
+      line: {
+        borderWidth: 2,
+      },
+      point: {
+        pointStyle: "circle",
+        backgroundColor: "#14213d",
+      },
+    },
+    layout: {
+      padding: 10,
+    },
+    plugins: {
+      tooltip: {
+        enabled: false,
+      },
+      datalabels: {
+        anchor: "start",
+        align: "top",
+        formatter: Math.round,
+        font: {
+          family: "'Poppins', sans-serif",
+          weight: "normal",
+          size: 12,
+        },
+      },
+      legend: {
+        display: false,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            weight: "normal",
+            family: "'Poppins', sans-serif",
+          },
+          autoSkip: false,
+          maxRotation: 0,
+          minRotation: 0,
+        },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        type: "linear",
+        grace: 3,
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  },
+});

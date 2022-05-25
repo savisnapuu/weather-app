@@ -1,5 +1,7 @@
 const APIKEY = "f4b9cb96b45e07e5787dbae9d0d6f6db";
 
+export let weatherData = "";
+
 export const getWeatherData = {
   getData: async () => {
     const data = await getWeatherData.geoCoding();
@@ -15,6 +17,7 @@ export const getWeatherData = {
       .then((data) => {
         return data;
       });
+    weatherData = response;
     return response;
   },
   geoCoding: async () => {

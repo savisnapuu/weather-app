@@ -25,8 +25,8 @@
     />
   </head>
   <body>
-    <div class="content">
-      <div class="container">
+    <div class="content-header">
+      <div>
         <div id="todays-weather-container">
           <div class="custom-shape-divider-bottom-1653323201">
             <svg
@@ -88,16 +88,11 @@
           </div>
         </div>
       </div>
-      <div id="weather-graph">
-        <div>
-          <h2>Weekly temperature</h2>
-          <h2>Weekly wind</h2>
-          <h2>Weekly sun</h2>
-        </div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-      </div>
+    </div>
+
+    <div class="content">
       <div class="container">
-        <div class="hourly-weather-header"><h2>Hourly forecast</h2></div>
+        <div class="hourly-weather-header"><h2>Weather today</h2></div>
         <div id="hourly-weather">
           <section class="splide" aria-label="">
             <div class="splide__track">
@@ -107,8 +102,24 @@
         </div>
       </div>
       <div class="container">
-        <div class="weekly-weather-header"><h2>Daily forecast</h2></div>
+        <div class="graph-header">
+          <div class="btn-group">
+            <button class="graph-header-item btn-left" data-value="day">
+              Day
+            </button>
+            <button class="graph-header-item" data-value="night">Night</button>
+            <button class="graph-header-item btn-right" data-value="wind">
+              Wind
+            </button>
+          </div>
+        </div>
+        <div id="weather-graph">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+      <div class="container">
         <div class="section-bg">
+          <div class="weekly-weather-header"><h2>Daily forecast</h2></div>
           <div id="weekly-weather-container"></div>
         </div>
       </div>

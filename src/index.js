@@ -3,11 +3,11 @@ import "./style.css";
 import Icon from "./waves.svg";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
-import * as dataFnc from "./getdata";
-import * as hourly from "./hourlyweather"
-import * as weekly from "./weeklyweather"
-import * as todays from "./todaysweather"
-import * as graph from "./graph"
+import * as dataw from "./getdata";
+import * as hourly from "./hourlyweather";
+import * as weekly from "./weeklyweather";
+import * as todays from "./todaysweather";
+import * as graph from "./graph";
 
 let splideActive = false;
 const CURRENT_TIME = new Date().toLocaleTimeString("en-US", {
@@ -28,7 +28,7 @@ function clearFields() {
 }
 
 async function test1() {
-  const weatherData = await dataFnc.getWeatherData.getData();
+  const weatherData = await dataw.getWeatherData.getData();
   if (weatherData === undefined) {
     removeLocationError();
     locationError();
@@ -36,6 +36,8 @@ async function test1() {
   }
   removeLocationError();
   splideActive === true ? clearFields() : (splideActive = true);
+  graph.clearGraphData();
+  graph.pushGraphData();
   graph.data = getGraphData(weatherData);
   graph.labels = weekly.weeklyWeather.getDay();
   graph.removeData(graph.myChart);
@@ -44,6 +46,7 @@ async function test1() {
   weekly.weeklyWeather.populateWeekly(weatherData);
   todays.todaysWeather.setTodayWeather(weatherData);
   hourly.splide.mount();
+  console.log(graph.dataForGraph);
 }
 
 function locationError() {
@@ -72,5 +75,3 @@ const button = document.getElementById("search-location-button");
 button.addEventListener("click", () => {
   test1();
 });
-
-
