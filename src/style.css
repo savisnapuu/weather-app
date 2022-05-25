@@ -24,7 +24,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  gap: 50px;
   padding: 20px;
 }
 
@@ -78,7 +78,7 @@ h2 {
 
 .hourly-temp {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   color: #14213d;
 }
 
@@ -131,7 +131,7 @@ h2 {
 
 .button-28:hover {
   color: #fff;
-  background-color: #1a1a1a;
+  background-color: #46c193;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -226,29 +226,22 @@ width: 200px;
   color: #1a1a1a;
   font-size: 20px;
   text-align: center;
-  font-weight: 600;
-}
-
-.weekly-weather {
-  padding: 0px 20px;
+  font-weight: bolder;
 }
 
 .weekly-weather-header {
   display: flex;
-  margin-bottom: 10px;
   justify-content: center;
 }
 
 .weekly-weather-header h2 {
   color: #1a1a1a;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: bolder;
 }
 
 #weekly-weather-container {
-  background-color: #1a1a1a;
   border-radius: 15px;
-  padding: 20px 0px;
 }
 
 .weekly-weather-row {
@@ -268,15 +261,15 @@ width: 200px;
 
 .weekly-weather-date h2 {
   font-weight: 500;
-  color: white;
+  color: #1a1a1a;
   font-size: 18px;
 }
 
 .weekly-weather-date p {
-  color: #ffffff87;
-  font-weight: 400;
-  font-size: 14px;
-  margin: 0;
+  color: #00000087;
+font-weight: 400;
+font-size: 12px;
+margin: 0;
 }
 
 .weekly-weather-day-night {
@@ -286,14 +279,14 @@ width: 200px;
 
 .weekly-weather-day h2 {
   font-size: 18px;
-  color: white;
-  font-weight: 500;
+color: #1a1a1a;
+font-weight: 500;
 }
 
 .weekly-weather-night h2 {
   font-size: 18px;
-  color: #ffffff87;
-  font-weight: 500;
+color: #00000087;
+font-weight: 500;
 }
 
 @media screen and (max-width: 600px) {
@@ -369,20 +362,20 @@ width: 200px;
   gap: 0px;
   width: 80%;
   max-width: 420px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px 7px 29px 0px;
   border-radius: 15px;
 }
 
 .btn-group button {
   background-color: #242424;
   color: white;
-  padding: 10px 24px;
   cursor: pointer;
   float: left;
-  border-left: 1px solid #14213d;
-  font-weight: 500;
+  font-weight: bolder;
   width: 100%;
   border-style: none;
+  font-size: 12px;
+  padding: 10px;
 }
 
 .btn-group:after {
@@ -400,16 +393,16 @@ width: 200px;
 }
 
 .btn-group button:hover {
-  background-color: white;
-  color: black;
+  background-color: #46c193;
+  color: white;
 }
 
 .btn-left {
-  border-radius: 15px 0px 0px 15px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .btn-right {
-  border-radius: 0px 15px 15px 00px;
+  border-radius: 0px 10px 10px 00px;
 }
 
 .content .container:nth-child(2) {
