@@ -39,7 +39,7 @@ async function test1() {
   graph.clearGraphData();
   graph.pushGraphData();
   graph.data = getGraphData(weatherData);
-  graph.labels = weekly.weeklyWeather.getDay();
+  graph.labels = weekly.weeklyWeather.getWeekDays();
   graph.removeData(graph.myChart);
   graph.addData(graph.myChart, graph.labels, graph.data);
   hourly.hourlyWeather.displayHourly(weatherData);
