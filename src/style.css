@@ -3,7 +3,7 @@
 }
 /* #f3f3f3, #232634 */
 body {
-  background-color: white;
+  background-color: #f9f9fb;
   margin: 0;
 }
 
@@ -18,6 +18,14 @@ h2 {
 .container {
   max-width: 1000px;
   width: 100%;
+}
+
+.h2-main {
+  color: #383838;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
+  margin: 0;
 }
 
 .content {
@@ -73,7 +81,7 @@ h2 {
 .hourly-time {
   font-weight: 400;
   font-size: 14px;
-  color: #14213d91;
+  color: #00000087;
 }
 
 .hourly-temp {
@@ -202,7 +210,7 @@ h2 {
 #todays-weather-icon {
   margin: -40px;
   height: 200px;
-width: 200px;
+  width: 200px;
 }
 
 .todays-weather-container-top {
@@ -222,22 +230,9 @@ width: 200px;
   margin-bottom: 10px;
 }
 
-.hourly-weather-header h2 {
-  color: #1a1a1a;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bolder;
-}
-
 .weekly-weather-header {
   display: flex;
   justify-content: center;
-}
-
-.weekly-weather-header h2 {
-  color: #1a1a1a;
-  font-size: 20px;
-  font-weight: bolder;
 }
 
 #weekly-weather-container {
@@ -261,15 +256,15 @@ width: 200px;
 
 .weekly-weather-date h2 {
   font-weight: 500;
-  color: #1a1a1a;
+  color: #383838;
   font-size: 18px;
 }
 
 .weekly-weather-date p {
   color: #00000087;
-font-weight: 400;
-font-size: 12px;
-margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
 }
 
 .weekly-weather-day-night {
@@ -278,15 +273,15 @@ margin: 0;
 }
 
 .weekly-weather-day h2 {
-  font-size: 18px;
-color: #1a1a1a;
-font-weight: 500;
+  font-size: 16px;
+  color: #383838;
+  font-weight: 500;
 }
 
 .weekly-weather-night h2 {
-  font-size: 18px;
-color: #00000087;
-font-weight: 500;
+  font-size: 16px;
+  color: #00000087;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 600px) {
@@ -313,7 +308,7 @@ font-weight: 500;
     margin-right: 0px;
   }
   #weather-graph {
-    height: 200px!important;
+    height: 200px !important;
   }
 }
 
@@ -334,7 +329,7 @@ font-weight: 500;
 }
 
 .custom-shape-divider-bottom-1653323201 .shape-fill {
-  fill: white;
+  fill: #f9f9fb;
 }
 
 #error-message {
@@ -367,7 +362,7 @@ font-weight: 500;
 }
 
 .btn-group button {
-  background-color: #242424;
+  background-color: #383838;
   color: white;
   cursor: pointer;
   float: left;
@@ -405,6 +400,112 @@ font-weight: 500;
   border-radius: 0px 10px 10px 00px;
 }
 
-.content .container:nth-child(2) {
-  margin-bottom: -25px;
+.weather-extra {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.weather-extra-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.weather-extra-top-item {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px 0px;
+  border: 1px solid #0000000a;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#weather-extra-chance-of-rain {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.weather-extra-bottom {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  align-items: center;
+  padding: 20px 0px;
+  border: 1px solid #0000000a;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.h2-weather-extra {
+  font-size: 14px;
+  font-weight: 500;
+  color: #383838;
+  text-align: center;
+  margin: 0;
+}
+
+.slide-container {
+  width: 90%;
+}
+
+.uvi-indicator-container {
+  display: flex;
+  justify-content: center;
+}
+
+#uvi-indicator {
+  margin: 0;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #9fddba;
+  padding: 5px 20px;
+  border-radius: 15px;
+  color: black;
+  text-transform: uppercase;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  background: linear-gradient(
+    90deg,
+    #9de1c8,
+    #a1d9ab,
+    #aece8e,
+    #bfc173,
+    #d3b160,
+    #e69f59,
+    #f68960,
+    #ff7373
+  );
+  border-radius: 15px;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 5px;
+  height: 20px;
+  background: #5e5e5e;
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 5px;
+  height: 20px;
+  background: #5e5e5e;
+  cursor: pointer;
+  border: none;
 }

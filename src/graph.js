@@ -66,7 +66,7 @@ export const myChart = new Chart(ctx, {
         label: "Weather",
         data: data,
         fill: false,
-        borderColor: "#14213d",
+        borderColor: "#383838",
         tension: 0.3,
       },
     ],

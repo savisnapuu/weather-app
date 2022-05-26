@@ -34,32 +34,32 @@ export let splide = new Splide(".splide", {
 });
 
 export const hourlyWeather = {
-    getTime: () => {
-      let time = Number(CURRENT_TIME);
-      let arr = [];
-      for (let i = 0; i < 48; i++) {
-        time === 23 ? (time = 0) : (time += 1);
-        let a = String(time);
-        a.length === 1 ? arr.push(`0${a}:00`) : arr.push(`${a}:00`);
-      }
-      return arr;
-    },
-    displayHourly: (weatherData) => {
-      const splide = document.getElementById("hourly-cards");
-      const time = hourlyWeather.getTime();
-      for (let i = 0; i < time.length; i++) {
-        const div = document.createElement("div");
-        div.classList.add("splide__slide");
-        div.innerHTML = hourlyWeather.hourlyHtml(
-          time[i],
-          weatherData.hourly[i].weather[0].icon,
-          Number(weatherData.hourly[i].temp).toFixed(1)
-        );
-        splide.appendChild(div);
-      }
-    },
-    hourlyHtml: (time, icon, temp) => {
-      const divHtml = `
+  getTime: () => {
+    let time = Number(CURRENT_TIME);
+    let arr = [];
+    for (let i = 0; i < 48; i++) {
+      time >= 23 ? (time = 0) : (time += 1);
+      let a = String(time);
+      a.length === 1 ? arr.push(`0${a}:00`) : arr.push(`${a}:00`);
+    }
+    return arr;
+  },
+  displayHourly: (weatherData) => {
+    const splide = document.getElementById("hourly-cards");
+    const time = hourlyWeather.getTime();
+    for (let i = 0; i < time.length; i++) {
+      const div = document.createElement("div");
+      div.classList.add("splide__slide");
+      div.innerHTML = hourlyWeather.hourlyHtml(
+        time[i],
+        weatherData.hourly[i].weather[0].icon,
+        Number(weatherData.hourly[i].temp).toFixed(1)
+      );
+      splide.appendChild(div);
+    }
+  },
+  hourlyHtml: (time, icon, temp) => {
+    const divHtml = `
       <div>
         <h2 class="hourly-time">${time}</h>
       </div>
@@ -67,6 +67,6 @@ export const hourlyWeather = {
         <h2 class="hourly-temp">${temp}°</h2>
       </div>
       `;
-      return divHtml;
-    },
-  };
+    return divHtml;
+  },
+};
