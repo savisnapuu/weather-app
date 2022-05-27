@@ -103,7 +103,6 @@ h2 {
 #search-group {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 #search-location {
@@ -162,13 +161,12 @@ h2 {
   display: flex;
   background-image: url(./waves.svg);
   background-color: #000104b3;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 40px 40px 60px 40px;
   flex-direction: column;
   background-size: cover;
   color: white;
-  gap: 15px;
   position: relative;
   background-position: center;
   background-blend-mode: overlay;
