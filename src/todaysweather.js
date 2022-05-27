@@ -21,7 +21,9 @@ export const todaysWeather = {
     todaysFeels.textContent = `${weatherData.current.feels_like.toFixed()}°`;
     uviSlider.value = weatherData.current.uvi.toFixed();
     uviRange(Number(weatherData.current.uvi.toFixed()));
-    chanceOfRain.textContent = `${weatherData.hourly[0].pop * 100}%`;
+    chanceOfRain.textContent = `${(
+      weatherData.hourly[0].pop * 100
+    ).toFixed()}%`;
     windDegree.style.rotate = `${weatherData.current.wind_deg}deg`;
   },
 };

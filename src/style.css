@@ -426,27 +426,20 @@ h2 {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-#weather-extra-chance-of-rain {
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-}
-
 .weather-extra-bottom {
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
+  background-color: #2c2c2c;
   border-radius: 15px;
   align-items: center;
   padding: 20px 0px;
-  border: 1px solid #0000000a;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(44, 44, 44, 0.36) 0px 8px 24px;
 }
 
 .h2-weather-extra {
   font-size: 14px;
   font-weight: 500;
-  color: #383838;
+  color: #3e3e3e87;
   text-align: center;
   margin: 0;
 }
@@ -508,4 +501,41 @@ h2 {
   background: #5e5e5e;
   cursor: pointer;
   border: none;
+}
+
+.asd1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.todays-weather-info {
+  display: flex;
+  padding: 10px 0px;
+  gap: 10px;
+  max-width: 140px;
+  width: 100%;
+}
+
+.todays-weather-info-left {
+  align-items: center;
+  display: flex;
+}
+
+.todays-weather-info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.todays-weather-info-right p {
+  margin: 0;
+}
+
+.material-symbols-outlined {
+  background-color: #dbdbdb4f;
+  border-radius: 15px;
+  padding: 5px;
+  color: #9d9b9b;
 }
