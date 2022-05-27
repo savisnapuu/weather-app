@@ -14,6 +14,7 @@ h2 {
 
 .flex {
   display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -22,10 +23,10 @@ h2 {
 }
 
 .h2-main {
-font-weight: bolder;
-margin: 0;
-color: #2c2c2ce8;
-font-size: 20px;
+  font-weight: bolder;
+  margin: 0;
+  color: #2c2c2ce8;
+  font-size: 20px;
 }
 
 .content {
@@ -52,9 +53,9 @@ font-size: 20px;
 }
 
 .splide__slide {
-  background-color: #b0f7aac2;
-border-radius: 15px;
-padding: 10px 0px;
+  background-color: #bef8e5c2;
+  border-radius: 15px;
+  padding: 10px 0px;
 }
 
 #hourly-weather {
@@ -142,7 +143,7 @@ padding: 10px 0px;
 
 .button-28:hover {
   color: #fff;
-  background-color: #46c193;
+  background-color: #9fddba;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -171,6 +172,7 @@ padding: 10px 0px;
   position: relative;
   background-position: center;
   background-blend-mode: overlay;
+  height: 400px;
 }
 
 .todays-weather-container-bottom {
@@ -211,7 +213,7 @@ padding: 10px 0px;
 }
 
 #todays-weather-icon {
-  margin: -40px;
+  margin: -35px 0px -40px 0px;
   height: 200px;
   width: 200px;
 }
@@ -390,7 +392,7 @@ padding: 10px 0px;
 }
 
 .btn-group button:hover {
-  background-color: #46c193;
+  background-color: #9fddba;
   color: white;
 }
 
@@ -437,7 +439,6 @@ padding: 10px 0px;
   padding: 20px 0px;
   box-shadow: rgba(44, 44, 44, 0.36) 0px 8px 24px;
   margin-top: 10px;
-
 }
 
 .h2-weather-extra {
@@ -535,9 +536,9 @@ padding: 10px 0px;
 
 .todays-weather-info-right p {
   margin: 0;
-font-size: 16px;
-font-weight: 600;
-color: #2c2c2c;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c2c2c;
 }
 
 .material-symbols-outlined {
@@ -547,8 +548,22 @@ color: #2c2c2c;
   color: #9d9b9b;
 }
 
-.uvi-header{
+.uvi-header {
   color: white;
-font-size: 14px;
-font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#weather-description {
+  background-color: #ddd5d51c;
+  color: #f3f2f2;
+  border-radius: 15px;
+  padding: 3px 15px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.paavle {
+  color: red;
 }

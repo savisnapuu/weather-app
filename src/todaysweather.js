@@ -9,6 +9,7 @@ export const todaysWeather = {
     const todaysHumidity = document.getElementById("todays-weather-humidity");
     const todaysFeels = document.getElementById("todays-weather-feels");
     const uviSlider = document.getElementById("uvi-slider");
+    const weatherDescription = document.getElementById("weather-description");
     const chanceOfRain = document.getElementById(
       "weather-extra-chance-of-rain"
     );
@@ -19,6 +20,7 @@ export const todaysWeather = {
     todaysWind.textContent = `${weatherData.current.wind_speed.toFixed()}m/s`;
     todaysHumidity.textContent = weatherData.current.humidity;
     todaysFeels.textContent = `${weatherData.current.feels_like.toFixed()}°`;
+    weatherDescription.textContent = weatherData.current.weather[0].main;
     uviSlider.value = weatherData.current.uvi.toFixed();
     uviRange(Number(weatherData.current.uvi.toFixed()));
     chanceOfRain.textContent = `${(

@@ -27,7 +27,7 @@ function clearFields() {
   hourly.splide.destroy();
 }
 
-async function test1() {
+async function handleAll() {
   const weatherData = await dataw.getWeatherData.getData();
   if (weatherData === undefined) {
     removeLocationError();
@@ -73,5 +73,5 @@ function getGraphData(weatherData) {
 
 const button = document.getElementById("search-location-button");
 button.addEventListener("click", () => {
-  test1();
+  handleAll();
 });
