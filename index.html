@@ -72,7 +72,7 @@
               </div>
             </div>
           </div>
-          <div class="todays-weather-container-bottom">
+          <!-- <div class="todays-weather-container-bottom">
             <div>
               <h3>Wind</h3>
               <p id="todays-weather-wind">-m/s</p>
@@ -84,7 +84,7 @@
             <div>
               <h3>Feels like</h3>
               <p id="todays-weather-feels">-°</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -92,26 +92,53 @@
 
     <div class="content">
       <div class="container">
-        <div class="weather-extra">
-          <div class="weather-extra-top">
-            <div class="weather-extra-top-item">
-              <h2 class="h2-weather-extra">Wind direction</h2>
-              <div>
-                <span
+        <div>
+          <h2>Weather now</h2>
+        </div>
+        <div class="asd1">
+          <div class="todays-weather-info">
+            <div class="todays-weather-info-left">
+              <span class="material-symbols-outlined"> thermometer </span>
+            </div>
+            <div class="todays-weather-info-right">
+              <h3 class="h2-weather-extra">Feels like</h3>
+              <p id="todays-weather-feels">-°</p>
+            </div>
+          </div>
+          <div class="todays-weather-info">
+            <div class="todays-weather-info-left">
+              <span
                   class="material-symbols-outlined"
                   id="weather-extra-wind-degree"
                 >
                   south
                 </span>
-              </div>
             </div>
-            <div class="weather-extra-top-item">
-              <div>
-                <h2 class="h2-weather-extra">Chance of rain</h2>
-                <h2 id="weather-extra-chance-of-rain">-</h2>
-              </div>
+            <div class="todays-weather-info-right">
+              <h3 class="h2-weather-extra">Wind</h3>
+              <p id="todays-weather-wind">-m/s</p>
+            </div>
+          </div> 
+          <div class="todays-weather-info">
+            <div class="todays-weather-info-left">
+              <span class="material-symbols-outlined"> umbrella </span>
+            </div>
+            <div class="todays-weather-info-right">
+              <h2 class="h2-weather-extra">Precipitation</h2>
+              <p id="weather-extra-chance-of-rain">-%</p>
             </div>
           </div>
+          <div class="todays-weather-info">
+            <div class="todays-weather-info-left">
+              <span class="material-symbols-outlined"> water_drop </span>
+            </div>
+            <div class="todays-weather-info-right">
+              <h2 class="h2-weather-extra">Humidity</h2>
+              <p id="todays-weather-humidity">-</p>
+            </div>
+          </div>
+         
+        </div>
           <div class="weather-extra-bottom">
             <h2 class="h2-weather-extra">UV index</h2>
             <div class="slide-container">
@@ -128,7 +155,7 @@
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
       <div class="container">
         <div class="hourly-weather-header">
