@@ -2,6 +2,7 @@
   font-family: "Poppins", sans-serif;
 }
 /* #f3f3f3, #232634 */
+/* #E0E1DDBD */
 body {
   background-color: #f9f9fb;
   margin: 0;
@@ -21,11 +22,10 @@ h2 {
 }
 
 .h2-main {
-  color: #383838;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bolder;
-  margin: 0;
+font-weight: bolder;
+margin: 0;
+color: #2c2c2ce8;
+font-size: 20px;
 }
 
 .content {
@@ -52,6 +52,9 @@ h2 {
 }
 
 .splide__slide {
+  background-color: #b0f7aac2;
+border-radius: 15px;
+padding: 10px 0px;
 }
 
 #hourly-weather {
@@ -232,7 +235,6 @@ h2 {
 
 .weekly-weather-header {
   display: flex;
-  justify-content: center;
 }
 
 #weekly-weather-container {
@@ -434,6 +436,8 @@ h2 {
   align-items: center;
   padding: 20px 0px;
   box-shadow: rgba(44, 44, 44, 0.36) 0px 8px 24px;
+  margin-top: 10px;
+
 }
 
 .h2-weather-extra {
@@ -531,6 +535,9 @@ h2 {
 
 .todays-weather-info-right p {
   margin: 0;
+font-size: 16px;
+font-weight: 600;
+color: #2c2c2c;
 }
 
 .material-symbols-outlined {
@@ -538,4 +545,10 @@ h2 {
   border-radius: 15px;
   padding: 5px;
   color: #9d9b9b;
+}
+
+.uvi-header{
+  color: white;
+font-size: 14px;
+font-weight: 500;
 }
