@@ -16,10 +16,6 @@ const CURRENT_TIME = new Date().toLocaleTimeString("en-US", {
   hour: "numeric",
 });
 
-window.addEventListener("load", (event) => {
-  console.log("page is fully loaded");
-});
-
 function clearFields() {
   const myNode = document.getElementById("hourly-cards");
   const myNode2 = document.getElementById("weekly-weather-container");

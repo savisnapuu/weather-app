@@ -33,7 +33,6 @@ export const todaysWeather = {
 export function uviRange(num) {
   const indicator = document.getElementById("uvi-indicator");
   if (num <= 2) {
-    console.log("asd");
     indicator.textContent = "Low";
     indicator.style.backgroundColor = "#9fddba";
   } else if (num <= 5) {
