@@ -26,7 +26,22 @@
   </head>
   <body>
     <div class="content-header">
-      <div>
+        <div id="search-section">
+          <div id="search-group">
+            <input
+              type="text"
+              id="search-location"
+              placeholder="Enter your location"
+            />
+            <button
+              id="search-location-button"
+              class="button-28"
+              role="button"
+            >
+              Search
+            </button>
+          </div>
+        </div>
         <div id="todays-weather-container">
           <div class="custom-shape-divider-bottom-1653323201">
             <svg
@@ -40,22 +55,6 @@
                 class="shape-fill"
               ></path>
             </svg>
-          </div>
-          <div id="search-section">
-            <div id="search-group">
-              <input
-                type="text"
-                id="search-location"
-                placeholder="Enter your location"
-              />
-              <button
-                id="search-location-button"
-                class="button-28"
-                role="button"
-              >
-                Search
-              </button>
-            </div>
           </div>
           <div class="todays-weather-container-top">
             <div class="todays-weather-container-top-a">
@@ -73,21 +72,7 @@
               <h2 id="weather-description">-</h2>
             </div>
           </div>
-          <!-- <div class="todays-weather-container-bottom">
-            <div>
-              <h3>Wind</h3>
-              <p id="todays-weather-wind">-m/s</p>
-            </div>
-            <div>
-              <h3>Humidity</h3>
-              <p id="todays-weather-humidity">-</p>
-            </div>
-            <div>
-              <h3>Feels like</h3>
-              <p id="todays-weather-feels">-°</p>
-            </div> -->
           </div>
-        </div>
       </div>
     </div>
 
@@ -170,20 +155,25 @@
           </section>
         </div>
       </div>
-      <div class="container">
+      <div class="container ">
+        <div>
+          <h2 class="h2-main">Weekly average</h2>
+        </div>
+        <div class="graph-container">
         <div class="graph-header">
           <div class="btn-group">
-            <button class="graph-header-item btn-left" data-value="day">
+            <button class="graph-header-item" data-value="day">
               Day
             </button>
             <button class="graph-header-item" data-value="night">Night</button>
-            <button class="graph-header-item btn-right" data-value="wind">
+            <button class="graph-header-item" data-value="wind">
               Wind
             </button>
           </div>
         </div>
         <div id="weather-graph">
           <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
         </div>
       </div>
       <div class="container">
