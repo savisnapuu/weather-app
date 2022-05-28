@@ -1,8 +1,7 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-/* #f3f3f3, #232634 */
-/* #E0E1DDBD */
+
 body {
   background-color: #f9f9fb;
   margin: 0;
@@ -15,6 +14,12 @@ h2 {
 .flex {
   display: flex;
   justify-content: center;
+}
+
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -39,7 +44,7 @@ h2 {
 
 .content-header {
   max-width: 100%;
-  background-image: url(./waves.svg);
+  background-image: url(./bg2.svg);
   background-color: #000104b3;
   position: relative;
   background-position: center;
@@ -62,22 +67,10 @@ h2 {
   margin-right: 50px;
 }
 
-.hourly-card {
-  padding-bottom: 15px;
-}
-
 .hourly-card-icon {
   margin-bottom: -10px;
   margin-top: -10px;
   width: 70px;
-}
-
-.hourly-card-wind {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 300;
-  font-size: 18px;
 }
 
 .hourly-time {
@@ -90,12 +83,6 @@ h2 {
   font-size: 18px;
   font-weight: 500;
   color: #14213d;
-}
-
-.hourly-wind {
-  font-family: "Oswald", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
 }
 
 #search-section {
@@ -219,6 +206,8 @@ h2 {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  height: 350px;
+  justify-content: center;
 }
 
 .todays-weather-container-top-a {
@@ -233,10 +222,6 @@ h2 {
 
 .weekly-weather-header {
   display: flex;
-}
-
-#weekly-weather-container {
-  border-radius: 15px;
 }
 
 .weekly-weather-row {
@@ -297,9 +282,6 @@ h2 {
   .weekly-weahter-night h2 {
     font-size: 16px;
   }
-  .hourly-temp {
-    font-size: 16px;
-  }
   .splide__arrow {
     display: none !important;
   }
@@ -339,6 +321,29 @@ h2 {
   font-weight: 300;
   font-size: 20px;
   padding: 5px;
+  margin-top: 10px;
+  color: white;
+  animation: horizontal-shaking;
+  animation-duration: 0.3s;
+  animation-iteration-count: 3;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 #weather-graph {
@@ -385,8 +390,7 @@ h2 {
 }
 
 .btn-group button:hover {
-  background-color: #9fddba;
-  color: white;
+  color: #f2dba5;
 }
 
 .weather-extra {
@@ -526,7 +530,7 @@ h2 {
   color: #2c2c2c;
 }
 
-.material-symbols-outlined {
+.icon-custom {
   background-color: #dbdbdb4f;
   border-radius: 15px;
   padding: 5px;
@@ -540,13 +544,14 @@ h2 {
 }
 
 #weather-description {
-  background-color: #ddd5d542;
+  background-color: #adadad8c;
   color: #f3f2f2;
   border-radius: 15px;
   padding: 3px 15px;
   font-weight: 500;
   font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .graph-container {
@@ -556,4 +561,13 @@ h2 {
   padding-top: 15px;
   margin-top: 10px;
   box-shadow: rgba(44, 44, 44, 0.36) 0px 8px 24px;
+}
+
+#location-symbol {
+  color: #ababab;
+  background-color: #dbdbdb00;
+}
+
+.test2 {
+  color: #f2dba5 !important;
 }

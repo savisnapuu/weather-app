@@ -32,15 +32,21 @@ export function clearGraphData() {
 const graphButtons = document.querySelectorAll(".graph-header-item");
 graphButtons.forEach((item) =>
   item.addEventListener("click", () => {
+    graphButtons.forEach((item) => {
+      item.classList.remove("test2");
+    });
     if (item.dataset.value === "day") {
       removeData(myChart);
       addData(myChart, labels, dataForGraph.day);
+      item.classList.add("test2");
     } else if (item.dataset.value === "night") {
       removeData(myChart);
       addData(myChart, labels, dataForGraph.night);
+      item.classList.add("test2");
     } else if (item.dataset.value === "wind") {
       removeData(myChart);
       addData(myChart, labels, dataForGraph.wind);
+      item.classList.add("test2");
     }
   })
 );

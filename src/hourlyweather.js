@@ -25,7 +25,7 @@ export let splide = new Splide(".splide", {
       perPage: 8,
     },
     2560: {
-      perPage: 10,
+      perPage: 8,
     },
   },
   perMove: 1,

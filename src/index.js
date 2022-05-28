@@ -1,6 +1,7 @@
 import _ from "lodash";
 import "./style.css";
 import Icon from "./waves.svg";
+import Bg from "./bg2.svg";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
 import * as dataw from "./getdata";
@@ -13,6 +14,10 @@ let splideActive = false;
 const CURRENT_TIME = new Date().toLocaleTimeString("en-US", {
   hour12: false,
   hour: "numeric",
+});
+
+window.addEventListener("load", (event) => {
+  console.log("page is fully loaded");
 });
 
 function clearFields() {
@@ -41,7 +46,7 @@ async function handleAll() {
   graph.data = getGraphData(weatherData);
   graph.labels = weekly.weeklyWeather.getWeekDays();
   graph.removeData(graph.myChart);
-  graph.addData(graph.myChart, graph.labels, graph.data);
+  graph.addData(graph.myChart, graph.labels, graph.dataForGraph.day);
   hourly.hourlyWeather.displayHourly(weatherData);
   weekly.weeklyWeather.populateWeekly(weatherData);
   todays.todaysWeather.setTodayWeather(weatherData);
@@ -52,6 +57,7 @@ function locationError() {
   const searchError = document.getElementById("search-section");
   const h2 = document.createElement("h2");
   h2.id = "error-message";
+  h2.classList.add("horizontal-shaking");
   h2.textContent = "No results found";
   searchError.appendChild(h2);
 }
