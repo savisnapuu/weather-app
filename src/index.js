@@ -1,6 +1,5 @@
 import _ from "lodash";
 import "./style.css";
-import Icon from "./waves.svg";
 import Bg from "./bg2.svg";
 import "@splidejs/splide/css";
 import Splide from "@splidejs/splide";
