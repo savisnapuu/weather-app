@@ -18,7 +18,6 @@ export const getWeatherData = {
         return data;
       });
     weatherData = response;
-    console.log(weatherData);
     return response;
   },
   geoCoding: async () => {

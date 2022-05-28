@@ -66,8 +66,8 @@ export const myChart = new Chart(ctx, {
         label: "Weather",
         data: data,
         fill: false,
-        borderColor: "#383838",
-        tension: 0.3,
+        borderColor: "#f2dba5",
+        tension: 0.2,
       },
     ],
   },
@@ -78,7 +78,7 @@ export const myChart = new Chart(ctx, {
       },
       point: {
         pointStyle: "circle",
-        backgroundColor: "#14213d",
+        backgroundColor: "#f2dba5",
       },
     },
     layout: {
@@ -89,13 +89,14 @@ export const myChart = new Chart(ctx, {
         enabled: false,
       },
       datalabels: {
+        color: "white",
         anchor: "start",
         align: "top",
         formatter: Math.round,
         font: {
           family: "'Poppins', sans-serif",
           weight: "normal",
-          size: 12,
+          size: 14,
         },
       },
       legend: {
@@ -107,6 +108,7 @@ export const myChart = new Chart(ctx, {
     scales: {
       x: {
         ticks: {
+          color: "#c5c5c5ba",
           font: {
             weight: "normal",
             family: "'Poppins', sans-serif",
@@ -116,6 +118,7 @@ export const myChart = new Chart(ctx, {
           minRotation: 0,
         },
         grid: {
+          borderColor: "#b2b2b24a",
           display: false,
         },
       },

@@ -46,7 +46,6 @@ async function handleAll() {
   weekly.weeklyWeather.populateWeekly(weatherData);
   todays.todaysWeather.setTodayWeather(weatherData);
   hourly.splide.mount();
-  console.log(graph.dataForGraph);
 }
 
 function locationError() {

@@ -34,11 +34,21 @@ h2 {
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .content-header {
   max-width: 100%;
+  background-image: url(./waves.svg);
+  background-color: #000104b3;
+  position: relative;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #splide01 {
@@ -50,18 +60,6 @@ h2 {
 .splide__track {
   margin-left: 50px;
   margin-right: 50px;
-}
-
-.splide__slide {
-  background-color: #bef8e5c2;
-  border-radius: 15px;
-  padding: 10px 0px;
-}
-
-#hourly-weather {
-}
-
-#hourly-cards {
 }
 
 .hourly-card {
@@ -98,6 +96,12 @@ h2 {
   font-family: "Oswald", sans-serif;
   font-size: 16px;
   font-weight: 300;
+}
+
+#search-section {
+  max-width: 400px;
+  width: 90%;
+  padding-top: 20px;
 }
 
 #search-group {
@@ -159,18 +163,12 @@ h2 {
 
 #todays-weather-container {
   display: flex;
-  background-image: url(./waves.svg);
-  background-color: #000104b3;
   justify-content: space-around;
   align-items: center;
-  padding: 40px 40px 60px 40px;
   flex-direction: column;
   background-size: cover;
   color: white;
-  position: relative;
-  background-position: center;
-  background-blend-mode: overlay;
-  height: 400px;
+  padding: 30px 0px 60px 0px;
 }
 
 .todays-weather-container-bottom {
@@ -310,7 +308,7 @@ h2 {
     margin-right: 0px;
   }
   #weather-graph {
-    height: 200px !important;
+    height: 180px !important;
   }
 }
 
@@ -344,10 +342,9 @@ h2 {
 }
 
 #weather-graph {
-  height: 300px;
   max-width: 1200px;
-  width: 100%;
   margin-bottom: -25px;
+  padding: 0px 5px 5px 5px;
 }
 
 .graph-header {
@@ -360,20 +357,17 @@ h2 {
   gap: 0px;
   width: 80%;
   max-width: 420px;
-  box-shadow: rgba(0, 0, 0, 0.26) 0px 7px 29px 0px;
-  border-radius: 15px;
 }
 
 .btn-group button {
-  background-color: #383838;
-  color: white;
+  background-color: #2c2c2c;
+  color: #c5c5c5ba;
   cursor: pointer;
   float: left;
   font-weight: bolder;
   width: 100%;
   border-style: none;
   font-size: 12px;
-  padding: 10px;
 }
 
 .btn-group:after {
@@ -387,20 +381,12 @@ h2 {
 }
 
 .btn-group button:not(:first-child) {
-  border-left: 1px solid #dddcdc;
+  border-left: 1px solid #b2b2b24a;
 }
 
 .btn-group button:hover {
   background-color: #9fddba;
   color: white;
-}
-
-.btn-left {
-  border-radius: 10px 0px 0px 10px;
-}
-
-.btn-right {
-  border-radius: 0px 10px 10px 00px;
 }
 
 .weather-extra {
@@ -563,6 +549,11 @@ h2 {
   text-transform: uppercase;
 }
 
-.paavle {
-  color: red;
+.graph-container {
+  background-color: #2c2c2c;
+  border-radius: 15px;
+  padding-bottom: 25px;
+  padding-top: 15px;
+  margin-top: 10px;
+  box-shadow: rgba(44, 44, 44, 0.36) 0px 8px 24px;
 }
